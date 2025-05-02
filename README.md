@@ -1,73 +1,210 @@
-# Welcome to your Lovable project
+# Aquatic Creatures Hub
 
-## Project info
+A full-stack web application for managing and exploring aquatic creatures, featuring authentication, file uploads, and a modern UI.
 
-**URL**: https://lovable.dev/projects/caaa2ffc-c55e-4e20-9b14-97b3ec07d03d
+## Features
 
-## How can I edit this code?
+- **User Authentication**
+  - Secure registration and login system
+  - JWT-based authentication
+  - Role-based access control (User/Admin)
+  - Protected routes and endpoints
 
-There are several ways of editing your application.
+- **Aquatic Creatures Management**
+  - CRUD operations for aquatic creatures
+  - Detailed creature information (name, scientific name, habitat, etc.)
+  - Image upload and management using Cloudinary
+  - Conservation status tracking
 
-**Use Lovable**
+- **Modern UI/UX**
+  - Responsive design
+  - Form validation
+  - Real-time feedback
+  - Intuitive navigation
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/caaa2ffc-c55e-4e20-9b14-97b3ec07d03d) and start prompting.
+## Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+### Frontend
+- **React** - UI framework
+- **TypeScript** - Type-safe JavaScript
+- **React Hook Form** - Form handling and validation
+- **Zod** - Schema validation
+- **Axios** - HTTP client
+- **React Router** - Client-side routing
+- **Context API** - State management
+- **Tailwind CSS** - Styling
 
-**Use your preferred IDE**
+### Backend
+- **Node.js** - Runtime environment
+- **Express** - Web framework
+- **MongoDB** - Database
+- **Mongoose** - ODM for MongoDB
+- **JWT** - Authentication
+- **Multer** - File upload handling
+- **Cloudinary** - Cloud storage for images
+- **Bcrypt** - Password hashing
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Testing
+- **Jest** - Test runner
+- **Supertest** - API testing
+- **ts-jest** - TypeScript testing support
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Project Structure
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+aquatic-creature-insights-hub/
+├── frontend/                 # React frontend
+│   ├── src/
+│   │   ├── components/      # Reusable UI components
+│   │   ├── context/         # React context providers
+│   │   ├── services/        # API service functions
+│   │   └── App.tsx         # Main application component
+│   └── package.json
+│
+└── backend/                  # Node.js backend
+    ├── src/
+    │   ├── config/         # Configuration files
+    │   ├── controllers/    # Request handlers
+    │   ├── middleware/     # Custom middleware
+    │   ├── models/         # Database models
+    │   ├── routes/         # API routes
+    │   ├── tests/          # Test files
+    │   ├── app.ts         # Express application
+    │   └── index.ts       # Server entry point
+    └── package.json
 ```
 
-**Edit a file directly in GitHub**
+## Key Concepts Implemented
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Authentication System
+- JWT-based authentication flow
+- Password hashing with bcrypt
+- Protected routes using middleware
+- Role-based access control
+- Token-based session management
 
-**Use GitHub Codespaces**
+### File Upload System
+- Multer middleware for file handling
+- Cloudinary integration for cloud storage
+- Image transformation and optimization
+- Secure file upload validation
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Database Design
+- MongoDB schema design
+- Mongoose models with TypeScript
+- Document relationships
+- Data validation and sanitization
 
-## What technologies are used for this project?
+### API Design
+- RESTful API endpoints
+- Error handling middleware
+- Request validation
+- Response formatting
+- Rate limiting (if implemented)
 
-This project is built with:
+### Frontend Architecture
+- Component-based architecture
+- State management with Context API
+- Form handling and validation
+- Protected route implementation
+- API service layer
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Testing Strategy
+- Unit tests for models and utilities
+- API endpoint testing
+- Authentication flow testing
+- File upload testing
+- Integration tests
 
-## How can I deploy this project?
+## Setup Instructions
 
-Simply open [Lovable](https://lovable.dev/projects/caaa2ffc-c55e-4e20-9b14-97b3ec07d03d) and click on Share -> Publish.
+### Prerequisites
+- Node.js (v14 or higher)
+- MongoDB
+- Cloudinary account
+- Git
 
-## Can I connect a custom domain to my Lovable project?
+### Backend Setup
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
 
-Yes, you can!
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+3. Create a `.env` file with the following variables:
+   ```
+   PORT=5000
+   MONGODB_URI=your_mongodb_uri
+   JWT_SECRET=your_jwt_secret
+   JWT_EXPIRES_IN=1h
+   CLOUDINARY_CLOUD_NAME=your_cloud_name
+   CLOUDINARY_API_KEY=your_api_key
+   CLOUDINARY_API_SECRET=your_api_secret
+   ```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+### Frontend Setup
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Create a `.env` file with:
+   ```
+   REACT_APP_API_URL=http://localhost:5000
+   ```
+
+4. Start the development server:
+   ```bash
+   npm start
+   ```
+
+## Testing
+
+### Backend Tests
+```bash
+cd backend
+npm test
+```
+
+### Frontend Tests
+```bash
+cd frontend
+npm test
+```
+
+## API Documentation
+
+### Authentication Endpoints
+- `POST /api/auth/register` - Register a new user
+- `POST /api/auth/login` - Login user
+- `GET /api/auth/me` - Get current user
+
+### Creature Endpoints
+- `GET /api/creatures` - Get all creatures
+- `POST /api/creatures` - Create a new creature
+- `PUT /api/creatures/:id` - Update a creature
+- `DELETE /api/creatures/:id` - Delete a creature
+
+## Contributing
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
