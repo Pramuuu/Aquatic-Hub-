@@ -1,0 +1,47 @@
+### Create a new creature
+POST http://localhost:5000/api/creatures
+Content-Type: application/json
+
+{
+  "name": "Great White Shark",
+  "scientificName": "Carcharodon carcharias",
+  "description": "The great white shark is a large mackerel shark which can be found in the coastal surface waters of all the major oceans.",
+  "habitat": "Coastal and offshore waters",
+  "conservationStatus": "Vulnerable",
+  "imageUrl": "https://example.com/great-white-shark.jpg"
+}
+
+### Create another creature
+POST http://localhost:5000/api/creatures
+Content-Type: application/json
+
+{
+  "name": "Blue Whale",
+  "scientificName": "Balaenoptera musculus",
+  "description": "The blue whale is a marine mammal and a baleen whale. It is the largest animal known to have ever existed.",
+  "habitat": "Open ocean",
+  "conservationStatus": "Endangered",
+  "imageUrl": "https://example.com/blue-whale.jpg"
+}
+
+### Get all creatures
+GET http://localhost:5000/api/creatures
+
+### Get a specific creature (replace :id with actual ID from the GET all response)
+GET http://localhost:5000/api/creatures/:id
+
+### Update a creature (replace :id with actual ID)
+PUT http://localhost:5000/api/creatures/:id
+Content-Type: application/json
+
+{
+  "name": "Updated Great White Shark",
+  "scientificName": "Carcharodon carcharias",
+  "description": "Updated description of the great white shark",
+  "habitat": "Updated habitat information",
+  "conservationStatus": "Endangered",
+  "imageUrl": "https://example.com/updated-shark.jpg"
+}
+
+### Delete a creature (replace :id with actual ID)
+DELETE http://localhost:5000/api/creatures/:id 
